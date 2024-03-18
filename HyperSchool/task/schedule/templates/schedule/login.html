@@ -1,0 +1,16 @@
+{% extends 'schedule/base.html' %}
+{%block title%}Login{%endblock%}
+
+{%block heading%} Login {% endblock %}
+
+{%block pageinfo%} Fill the form to Log in: {%endblock%}
+
+{%block content%}
+    <div>
+    <form method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit">Login</button>
+    </form>
+    </div>
+{%endblock%}

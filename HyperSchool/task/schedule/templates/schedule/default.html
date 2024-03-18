@@ -1,0 +1,19 @@
+{% extends 'schedule/base.html' %}
+{%block title%}{%endblock%}
+
+{%block heading%} {% endblock %}
+
+{%block pageinfo%} {%endblock%}
+
+{%block content%}
+
+    {% if data %}
+        <p>
+            Courses available: {{ objects | length }}
+        </p>
+        {%for object in objects%}
+            <a href="{{object.get_absolute_url}}">{{object}}</a>
+        {%endfor%}
+    {%endif%}
+
+{%endblock%}

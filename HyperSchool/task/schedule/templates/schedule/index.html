@@ -1,0 +1,29 @@
+{% extends 'schedule/base.html' %}
+{%block title%}Main{%endblock%}
+
+{%block heading%} HyperSchool{% endblock %}
+
+{%block pageinfo%} Search any course you are interested in.{%endblock%}
+{%block content%}
+    <div>
+        <br>
+        <p> <a href="{%url 'signup_url'%}">Sign Up</a> </p>
+        <p> <a href="{%url 'login_url'%}">Login</a> </p>
+        <p> <a href="{%url 'logout_url'%}"><button>Logout</button></a> </p>
+
+        <br>
+    </div>
+    <form>
+        {{form}}
+        <button>search</button>
+    </form>
+
+    {% if objects %}
+        <p>
+            Courses available: {{ objects | length }}
+        </p>
+        {%for object in objects%}
+            <a href="{{object.get_absolute_url}}">{{object}}</a> <br>
+        {%endfor%}
+    {%endif%}
+{%endblock%}

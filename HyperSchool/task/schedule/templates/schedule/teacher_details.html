@@ -1,0 +1,27 @@
+{% extends 'schedule/base.html' %}
+{%block title%}Teacher Details{%endblock%}
+
+{%block heading%} Teacher Details{% endblock %}
+
+{%block pageinfo%} Below is all the information about the Teacher: {%endblock%}
+
+{%block content%}
+
+    {% if teacher %}
+        <h2>
+            Name: {{teacher.name|title}}
+        </h2>
+        <h3>
+            Surname: {{teacher.surname|title}}
+        </h3>
+        <h3>
+            Age: {{teacher.age|title}} years old.
+        </h3>
+        <p>
+            About: {{teacher.about|title}}
+        </p>
+        <a href="{% url 'main' %}"> Go back to the courses' list</a>
+
+    {%endif%}
+
+{%endblock%}

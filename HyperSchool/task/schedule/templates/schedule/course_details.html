@@ -1,0 +1,46 @@
+{% extends 'schedule/base.html' %}
+{%block title%}Course Details{%endblock%}
+
+{%block heading%} Course Details{% endblock %}
+
+{%block pageinfo%} Below is all the information about the course: {%endblock%}
+
+{%block content%}
+
+    {% if course %}
+        <h2>
+            Name of the program: {{course.title}}
+        </h2>
+        <p>
+            Short description of the course: {{course.info}}
+        </p>
+        <p>
+            Course Duration: {{course.duration_months}} months
+        </p>
+        <p>
+            Course Price: {{course.price}} $
+        </p>
+        <h2>
+            Course's Teachers:
+        </h2>
+        <p>
+            {%for teacher in course.teacher%}
+                <a href="{{teacher.get_absolute_url}}">{{teacher}}</a> <br>
+            {%endfor%}
+        </p>
+        {%if students%}
+            <h2>Already Studying</h2>
+            {%for student in students%}
+                <p>{{student}}</p>
+            {%endfor%}
+        {%endif%}
+    {%endif%}
+    <footer>
+        <h2>Join us!</h2>
+        <p>
+            <a href="{%url 'add_course_url'%}">Apply to the course {{course.title}}</a>
+        </p>
+        <a href="{% url 'main' %}"> Go back to the courses' list</a>
+    </footer>
+
+{%endblock%}

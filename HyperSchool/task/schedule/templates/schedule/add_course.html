@@ -1,0 +1,16 @@
+{% extends 'schedule/base.html' %}
+{%block title%}Apply to the course{%endblock%}
+
+{%block heading%} Apply to the course {% endblock %}
+
+{%block pageinfo%} {%endblock%}
+
+{%block content%}
+    <div>
+    <form method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+    </div>
+{%endblock%}

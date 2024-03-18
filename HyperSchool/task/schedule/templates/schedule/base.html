@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{%block title%} {% endblock %}</title>
+        {% load static %}
+
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+
+    </head>
+
+    <body>
+        <h2>{%block heading%} {% endblock %}</h2>
+        <p>{%block pageinfo%} {%endblock%}</p>
+
+        {% block content%}
+
+        {% endblock %}
+    </body>
+</html>
